@@ -6,7 +6,8 @@
   "author": "Megan Coyle <mcoyle@usgbc.org>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "NODE_ENV=development webpack-dev-server",
+    "build": "NODE_ENV=build webpack",
     "api": "babel-node server.js"
   },
   "repository": "git+https://github.com/megancoyle/retrogames-library.git",
