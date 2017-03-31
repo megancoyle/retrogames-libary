@@ -10,6 +10,6 @@ export default function* rootSaga () {
     watchGetGames(),
     watchDeleteGame(),
     watchPostGame(),
-    watchUploadPicture() 
+    watchUploadPicture()
   ];
 }

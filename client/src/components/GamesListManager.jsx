@@ -17,7 +17,6 @@ export default class GamesListManager extends PureComponent {
         </div>
         <div className="row">
         {
-    // A Game is only shown if its name contains the string from the searchBar
           games
             .filter(game => game.name.toLowerCase().includes(searchBar))
             .map((game, i) => {

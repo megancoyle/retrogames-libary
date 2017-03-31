@@ -1,19 +1,19 @@
 import { takeLatest } from 'redux-saga';
 import {
-    put,
-    select,
-    call
+	put,
+	select,
+	call
 } from 'redux-saga/effects';
 import {
   GET_GAMES,
-  DELETE_GAME,
-  POST_GAME 
+	DELETE_GAME,
+  POST_GAME
 } from '../constants/games';
 import {
-  getGamesSuccess,
-  getGamesFailure ,
-  deleteGameSuccess,
-  deleteGameFailure,
+	getGamesSuccess,
+	getGamesFailure,
+	deleteGameSuccess,
+	deleteGameFailure,
   postGameSuccess,
   postGameFailure
 } from '../actions/games';
@@ -61,6 +61,7 @@ function* getGames () {
     const games = yield call(fetchGames);
     yield put(getGamesSuccess(games));
   } catch (err) {
+    console.log('here');
     yield put(getGamesFailure());
   }
 }
@@ -69,7 +70,7 @@ function* deleteGame (action) {
   const { id } = action;
   const games = yield select(selectedGames);
   try {
-    yield call(deleteServerGame, id); // API call
+    yield call(deleteServerGame, id);
     yield put(deleteGameSuccess(games.filter(game => game._id !== id)));
   } catch (e) {
     yield put(deleteGameFailure());
@@ -90,6 +91,7 @@ function* postGame () {
   } catch (e) {
     yield put(postGameFailure());
   }
+
 }
 
 function* watchGetGames () {
@@ -97,7 +99,7 @@ function* watchGetGames () {
 }
 
 function* watchDeleteGame () {
-    yield takeLatest(DELETE_GAME, deleteGame);
+	yield takeLatest(DELETE_GAME, deleteGame);
 }
 
 function* watchPostGame () {
@@ -105,7 +107,7 @@ function* watchPostGame () {
 }
 
 export {
-    watchGetGames,
-    watchDeleteGame,
-    watchPostGame
+	watchGetGames,
+	watchDeleteGame,
+  watchPostGame
 };

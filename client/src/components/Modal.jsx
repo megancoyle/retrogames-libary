@@ -9,7 +9,7 @@ export default class Modal extends PureComponent {
           <div className="modal-content">
             <div className="modal-header">
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
+                <span aria-hidden="true">&times;</span>
               </button>
               <h4 className="modal-title" id="myModalLabel">{`${name} (${year})`}</h4>
             </div>

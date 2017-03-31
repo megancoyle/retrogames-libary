@@ -10,7 +10,6 @@ const pick = () => {
    return new Promise((resolve, reject) => {
     filepicker.pick (
       {
-      // The options are the same as in part1
         mimetype: 'image/*',
         container: 'modal',
         services: ['COMPUTER', 'FACEBOOK', 'INSTAGRAM', 'URL', 'IMGUR', 'PICASA'],
@@ -19,11 +18,11 @@ const pick = () => {
       function (Blob) {
         console.log(JSON.stringify(Blob));
         const handler = Blob.url;
-        resolve(handler); // The promise resolves
+        resolve(handler);
       },
       function (FPError) {
         console.log(FPError.toString());
-        reject(FPError.toString()); // the promise rejects
+        reject(FPError.toString());
       }
     );
   });
@@ -31,7 +30,7 @@ const pick = () => {
 
 function* uploadPicture () {
   try {
-    const url = yield call(pick); // call the pick function
+    const url = yield call(pick);
     yield put(uploadPictureSuccess(url));
   } catch (error) {
     yield put(uploadPictureFailure());

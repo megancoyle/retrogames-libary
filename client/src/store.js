@@ -1,6 +1,7 @@
 import {
   createStore,
-  applyMiddleware
+  applyMiddleware,
+  compose
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
@@ -10,9 +11,11 @@ const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     reducer,
-    applyMiddleware(sagaMiddleware)
+    compose(
+      applyMiddleware(sagaMiddleware),
+      window.devToolsExtension ? window.devToolsExtension() : (f) => f
+    )
   );
-
   sagaMiddleware.run(rootSaga);
 
   return store;

@@ -12,6 +12,7 @@ import {
   POST_GAME_FAILURE
 } from '../constants/games';
 
+
 function getGames () {
   return {
     type: GET_GAMES

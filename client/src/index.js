@@ -3,9 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 
-filepicker.setKey("ADD_IT_HERE");
+filepicker.setKey("YOUR_API_KEY");
 
-// views rendered inside the #content div
 ReactDOM.render(
   Routes,
   document.getElementById('content')
