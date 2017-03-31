@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { hashHistory } from 'react-router';
@@ -6,7 +6,7 @@ import { Form } from '../components';
 import * as gamesActionCreators from '../actions/games';
 import * as filestackActionCreators from '../actions/filestack';
 
-class AddGameContainer extends PureComponent {
+class AddGameContainer extends Component {
   constructor (props) {
     super(props);
     this.submit = this.submit.bind(this);
@@ -15,7 +15,6 @@ class AddGameContainer extends PureComponent {
   submit (event) {
     event.preventDefault();
     this.props.gamesActions.postGame();
-    hashHistory.push('/games');
   }
   uploadPicture () {
     this.props.filestackActions.uploadPicture();
